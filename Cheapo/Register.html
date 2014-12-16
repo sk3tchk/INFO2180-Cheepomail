@@ -1,0 +1,60 @@
+<?php
+session_start();
+
+if (isset($_POST['new_user_sub']) && $_POST['new_user_sub'] == 'Submit') {
+include 'login.php';
+
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+$query = "INSERT INTO `user` (`first_name`, `last_name`,`username`,`email`,`password`) VALUES('$firstname','$lastname','$username','$email','$password')";
+
+
+?>
+<html>
+<head>
+	<titlt></title>
+</head>
+<body>
+	<div id="Register Area">
+                    
+                    <h3 id="head">Register</h3>
+                    <hr>
+                    
+        <div id="home">
+                <div id="admin">
+                    <input type="button" id="add_user_button" value="Add New User">
+                    <input type="button" id="logoutbutton" value="Log out">
+                </div>
+                <hr>
+                <div id="user_data">
+                    <div id="new_user_error">
+                        
+                    </div>
+                    <form>
+                        <br><br>
+                        First Name: <br>
+                        <input type="text" id="firstname"> <br>
+                        Last Name:<br>
+                        <input type="text" id="lastname"><br>
+                        Username:<br>
+                        <input type="text" id="username"><br>
+                        Email:<br>
+                        <input type="text" id="email"><br>
+                        Password:<br>
+                        <input type="password" id="password"><br><br>
+                        Confirm Password:<br>
+                        <input type="password" id="password_confirm"><br><br>
+                        <input type="button" id="new_user_sub" value="Submit">
+                        <input type="button" id="new_user_cancel" value="Cancel">
+                     
+                    </form>
+                    
+                </div>
+        </div>
+    </div>
+</body>
+</html>
